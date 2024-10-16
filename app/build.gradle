@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    // Add the Performance Monitoring Gradle plugin
+    id 'com.google.firebase.firebase-perf'
 }
 
 android {
@@ -39,8 +42,12 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 
+    //For firebase
     implementation platform('com.google.firebase:firebase-bom:33.4.0')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-perf")
 
 
 }
