@@ -10,6 +10,11 @@
       "StackName": "amplify-rrbmobileamplify-dev-28fc4",
       "StackId": "arn:aws:cloudformation:us-east-2:558574385494:stack/amplify-rrbmobileamplify-dev-28fc4/c2ed8220-8f22-11ef-9fc6-0645a8a60d85",
       "AmplifyAppId": "dwj0mjcmefp8t"
+    },
+    "categories": {
+      "auth": {
+        "rrbmobileamplifybc79ae65bc79ae65": {}
+      }
     }
   }
 }
