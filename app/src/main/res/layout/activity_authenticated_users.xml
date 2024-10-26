@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthenticatedUsersActivity">
+
+    <TextView
+        android:id="@+id/textViewAuthenticatedUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/authenticated_users_only"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewHowLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/logged_in_as"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAuthenticatedUsers" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewCogintoUser"
+        android:layout_width="339dp"
+        android:layout_height="250dp"
+        android:visibility="visible"
+        app:cardBackgroundColor="#fffefb"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_viewLogout"
+        app:layout_constraintVertical_bias="0.105">
+
+        <Button
+            android:id="@+id/buttonGetAttributes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="getAttributes"
+            android:text="@string/get_attributes"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonUpdateAttributes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="updateMultipleAttributes"
+            android:text="@string/update_attributes"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonChangePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="changePassword"
+            android:text="@string/change_password"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonUpdateEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="updateEmail"
+            android:text="@string/update_email"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonGetCredentials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:onClick="getCredentials"
+            android:text="@string/get_user_credentials"
+            android:textSize="12sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewGuestUser"
+        android:layout_width="339dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="324dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#fffefb"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonGuestCredentials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:onClick="getGuestCredentials"
+            android:text="@string/get_guest_credentials" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_viewLogout"
+        android:layout_width="352dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="12dp"
+        android:visibility="visible"
+        app:cardBackgroundColor="#fffefb"
+        app:cardCornerRadius="20dp"
+        app:contentPadding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHowLoggedIn">
+
+        <TextView
+            android:id="@+id/textViewLogoutHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="@string/logout"
+            android:textColor="#2196F3"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonLogoutGlobal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:onClick="signOutGlobally"
+            android:text="@string/logout_global"
+            android:layout_marginLeft="10dp" />
+
+        <Button
+            android:id="@+id/buttonLogoutCognitoUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="10dp"
+            android:onClick="signOut"
+            android:text="@string/logout"
+            android:layout_marginRight="10dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/buttonGoHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="goHome"
+        android:text="@string/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_viewConfirmUpdate"
+        android:layout_width="0dp"
+        android:layout_height="225dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#fffefb"
+        app:cardCornerRadius="20dp"
+        app:contentPadding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_viewLogout">
+
+        <TextView
+            android:id="@+id/textViewConfirmUpdateMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="60dp"
+            android:text="@string/check_email_for_verification_code"
+            android:textColor="#F44336"
+            android:layout_marginLeft="5dp" />
+
+        <EditText
+            android:id="@+id/editTextCodeConfirmUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:hint="@string/enter_code"
+            android:inputType="text"
+            android:layout_marginLeft="5dp" />
+
+        <Button
+            android:id="@+id/buttonConfirmUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="10dp"
+            android:background="#009688"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="verifyUserAttribute"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/confirm_email"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/confirm_update"
+            android:textColor="#2196F3"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textViewResendUpdateCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="resendUpdateCode"
+            android:text="@string/resend_code"
+            android:textColor="#2196F3"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    for changing password-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_viewChangePassword"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="40dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#fffefb"
+        app:cardCornerRadius="20dp"
+        app:contentPadding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewChangePasswordHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="@string/change_password"
+            android:textColor="#2196F3"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editTextOldPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:hint="@string/enter_old_password"
+            android:inputType="textPassword"
+            android:layout_marginLeft="5dp" />
+
+        <EditText
+            android:id="@+id/editTextNewPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="120dp"
+            android:ems="10"
+            android:hint="@string/enter_new_password"
+            android:inputType="textPassword"
+            android:layout_marginLeft="5dp" />
+
+        <Button
+            android:id="@+id/buttonSaveNewPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:onClick="saveNewPassword"
+            android:text="@string/change_password"
+            android:layout_marginRight="10dp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
